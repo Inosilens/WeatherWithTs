@@ -2,6 +2,7 @@ import React, { FC, useEffect } from "react";
 import { useTypedSelector } from "../hooks/useTypedSelector";
 import { fetchWeather } from "../store/actions/weather";
 import { useDispatch } from "react-redux";
+import { CityCart } from "./CityCart";
 
 export const HeaderApp: FC = () => {
   const { list, loading, error } = useTypedSelector((state) => state.weather);
@@ -21,7 +22,7 @@ export const HeaderApp: FC = () => {
   return (
     <div>
       {list.map((city) => (
-        <div> {city.name}</div>
+        <CityCart key={city.id} {...city} />
       ))}
     </div>
   );
