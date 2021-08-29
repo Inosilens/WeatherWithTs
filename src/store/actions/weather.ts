@@ -8,7 +8,7 @@ export const fetchWeather = () => {
     try {
       dispatch({ type: WeatherActionTypes.FETCH_WEATHER });
       const response = await axios.get(BASE_URL, {
-        params: { lat: 56.5, lon: 84.9667, cnt: 15, appid: API_KEY },
+        params: { lat: 56.5, lon: 84.9667, cnt: 15,units:"metric", appid: API_KEY },
       });
       dispatch({
         type: WeatherActionTypes.FETCH_WEATHER_SUCCESS,
