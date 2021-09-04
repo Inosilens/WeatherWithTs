@@ -1,4 +1,4 @@
-import * as WeatherActionCreator from "./weather";
+import * as WeatherActionCreator from "./weatherAction";
 import * as PanaginationActionCreator from "./panaginationAction";
 
 export default {

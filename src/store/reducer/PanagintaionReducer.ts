@@ -5,13 +5,13 @@ import {
 } from "../types/Panagination";
 
 const defaultState: Panagination = {
-  currentPage:1
+  currentPage: 1,
 };
 
 export const PanaginationReducer = (
   state: Panagination = defaultState,
   action: PanaginationAction
-) :Panagination=> {
+): Panagination => {
   switch (action.type) {
     case PanaginationActionsType.SET_CURRENT_PAGE:
       return { ...state, currentPage: action.payload };

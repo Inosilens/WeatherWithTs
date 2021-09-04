@@ -10,11 +10,8 @@ export const HeaderApp: FC = () => {
   const { currentPage } = useTypedSelector((state) => state.panagination);
   const { fetchWeather } = useActions();
 
-  useEffect( () => {
-    fetchWeather()
-
-
-
+  useEffect(() => {
+    fetchWeather();
   }, []);
 
   const CITY_PER_PAGE = 5;
@@ -45,10 +42,7 @@ export const HeaderApp: FC = () => {
     <Container>
       <CityList>
         {currentCity.map((city) => (
-          <CityCart
-            key={city.id}
-            {...city}
-          />
+          <CityCart key={city.id} {...city} />
         ))}
       </CityList>
       <Panagination />

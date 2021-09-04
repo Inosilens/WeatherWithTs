@@ -26,6 +26,7 @@ export interface WeatherList {
   loading: boolean;
   error: null | string;
   cityInfo: CityInfo;
+  forecast: any;
 }
 
 export enum WeatherActionTypes {
@@ -33,6 +34,11 @@ export enum WeatherActionTypes {
   FETCH_WEATHER_SUCCESS = "FETCH_WEATHER_SUCCESS",
   FETCH_WEATHER_ERROR = "FETCH_WEATHER_ERROR",
   GET_CITY_INFO = "GET_CITY_INFO",
+  FETCH_FORECAST = "GET_FORECAST",
+}
+interface FetchForecastAction {
+  type: WeatherActionTypes.FETCH_FORECAST;
+  payload: any;
 }
 interface GetCityInfoAction {
   type: WeatherActionTypes.GET_CITY_INFO;
@@ -54,4 +60,5 @@ export type WeatherAction =
   | FetchWeatherAction
   | FetchWeatherSuccessAction
   | FetchWeatherErrorAction
-  | GetCityInfoAction;
+  | GetCityInfoAction
+  | FetchForecastAction;
