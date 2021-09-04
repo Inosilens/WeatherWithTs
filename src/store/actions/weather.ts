@@ -8,12 +8,20 @@ export const fetchWeather = () => {
     try {
       dispatch({ type: WeatherActionTypes.FETCH_WEATHER });
       const response = await axios.get(BASE_URL, {
-        params: { lat: 56.5, lon: 84.9667, cnt: 15,units:"metric", appid: API_KEY },
+        params: {
+          lat: 56.5,
+          lon: 84.9667,
+          cnt: 15,
+          units: "metric",
+          appid: API_KEY,
+        },
       });
       dispatch({
         type: WeatherActionTypes.FETCH_WEATHER_SUCCESS,
         payload: response.data.list,
-      });
+      })
+      dispatch({type:WeatherActionTypes.GET_CITY_INFO,
+      payload:response.data.list[0]});
     } catch (e) {
       dispatch({
         type: WeatherActionTypes.FETCH_WEATHER_ERROR,
@@ -22,3 +30,8 @@ export const fetchWeather = () => {
     }
   };
 };
+
+export const getCityInfo = (city:object):WeatherAction=>{
+  return {type:WeatherActionTypes.GET_CITY_INFO,
+  payload:city}
+}

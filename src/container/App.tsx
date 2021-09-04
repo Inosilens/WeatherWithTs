@@ -1,11 +1,14 @@
 import React, {FC} from 'react';
 import {HeaderApp} from "../components/HeaderApp";
-import {Main} from "../components/Main";
+import {Main} from "./Main";
 
 
 
 
 export const App: FC = () => {
+
+
+
   return (
 
         <div>
