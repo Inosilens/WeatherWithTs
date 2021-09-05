@@ -1,3 +1,5 @@
+
+
 export const dynamicBackground = {
     "Tomsk"         : "../img/Tomsk.jpg",
     "Timiryazevskiy": "../img/Timiryazevskoe.jpg",

@@ -5,9 +5,15 @@ import { Day, Hour, IMAGE_URL, Minutes, thisDay } from "../helpers/constants";
 import { ForecastCart } from "./UI/ForecastCart";
 import { transcription } from "../helpers/transcription";
 import { mathFloor } from "../helpers/mathfloor";
+import { dynamicBackground } from "../helpers/dynamicBackground";
 import Tomsk from "../img/Tomsk.jpg";
 
-const Container = styled.div`
+interface Container {
+  cityName?: string;
+  dynamicBackground: any;
+}
+
+const Container = styled.div<Container>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -23,9 +29,10 @@ export const CityInfo: FC = () => {
   const { cityInfo, dailyForecast } = useTypedSelector(
     (state) => state.weather
   );
+  console.log(dynamicBackground["Tomsk"]);
 
   return (
-    <Container>
+    <Container cityName={cityInfo.name} dynamicBackground={dynamicBackground}>
       <h1>{transcription(cityInfo.name, true)}</h1>
       <h3>
         {Hour}:{Minutes}
