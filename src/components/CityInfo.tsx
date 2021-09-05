@@ -3,19 +3,19 @@ import { useTypedSelector } from "../hooks/useTypedSelector";
 import styled from "styled-components";
 import { Day, Hour, IMAGE_URL, Minutes, thisDay } from "../helpers/constants";
 import { ForecastCart } from "./UI/ForecastCart";
-import {transcription} from "../helpers/transcription";
+import { transcription } from "../helpers/transcription";
+import { mathFloor } from "../helpers/mathfloor";
 const Container = styled.div`
-  margin: 10px 100px 0px;
+  margin: 10px 100px 0;
 `;
-
 export const CityInfo: FC = () => {
   const { cityInfo, dailyForecast } = useTypedSelector(
     (state) => state.weather
   );
 
   return (
-    <Container>
-      <h1>{transcription(cityInfo.name,true)}</h1>
+    <Container >
+      <h1>{transcription(cityInfo.name, true)}</h1>
       <h3>
         {Hour}:{Minutes}
       </h3>
@@ -29,11 +29,11 @@ export const CityInfo: FC = () => {
         />
       </h1>
       <h3>
-        {cityInfo.main.temp}
+        {mathFloor(cityInfo.main.temp)}
         &#8451;
       </h3>
       <h3>
-        Ощущается : {cityInfo.main.feels_like}
+        Ощущается : {mathFloor(cityInfo.main.feels_like)}
         &#8451;
       </h3>
 

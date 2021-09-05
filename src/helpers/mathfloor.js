@@ -1,0 +1,1 @@
+export const mathFloor = (number) => Math.floor(number)

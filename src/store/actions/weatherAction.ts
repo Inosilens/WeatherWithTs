@@ -61,7 +61,6 @@ export const fetchWeather = () => {
     }
   };
 };
-
 export const getCityInfo = (city: object): WeatherAction => {
   return { type: WeatherActionTypes.GET_CITY_INFO, payload: city };
 };

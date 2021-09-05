@@ -2,6 +2,8 @@ import React from "react";
 import { CityInfo } from "../components/CityInfo";
 import { Forecast } from "../components/Forecast";
 import styled from "styled-components";
+import { useTypedSelector } from "../hooks/useTypedSelector";
+
 
 const Container = styled.div`
   display: flex;
@@ -11,6 +13,11 @@ const Container = styled.div`
 `;
 
 export const Main = () => {
+  const { loading } = useTypedSelector((state) => state.weather);
+
+  if (loading) {
+    return null;
+  }
   return (
     <Container>
       <CityInfo />
