@@ -1,28 +1,28 @@
 import React, { FC } from "react";
 import styled from "styled-components";
 import { useActions } from "../hooks/useActions";
-import { getForecast } from "../store/actions/weatherAction";
+import { CityInfo } from "../store/types/Weather";
 
-export interface CityProps {
-  name: string;
-  coord?: { lat: number; lon: number };
-  main?: {};
-}
-export const CityCart: FC<CityProps> = (city) => {
-  const { getCityInfo, getForecast } = useActions();
+const Cart = styled.span`
+  margin: 10px;
+`;
+export const CityCart: FC<CityInfo> = (city) => {
+  const { getCityInfo, getForecast, getHourlyForecast } = useActions();
   const cityInfo = (item: object) => {
     getCityInfo(item);
   };
   const foreCast = (lat: any, lon: any) => {
-    getForecast(lat,lon)
+    getForecast(lat, lon);
   };
-  const Cart = styled.div`
-    margin: 10px;
-  `;
+  const hourlyForecast = (lat: number, lon: number) => {
+    getHourlyForecast(lat, lon);
+  };
+
   return (
     <Cart
       onClick={() => {
         cityInfo(city);
+        hourlyForecast(city.coord?.lat, city.coord?.lon);
         foreCast(city.coord?.lat, city.coord?.lon);
       }}
     >

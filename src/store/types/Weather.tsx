@@ -1,6 +1,6 @@
 interface Coord {
   lat: number;
-  lan: number;
+  lon: number;
 }
 
 interface Wind {
@@ -8,25 +8,26 @@ interface Wind {
 }
 interface Main {
   temp: number;
-  feels_Like: number;
+  feels_like: number;
   temp_min: number;
   temp_max: number;
 }
-interface CityInfo {
+export interface CityInfo {
   name: string;
   coord: Coord;
   main: Main;
   wind: Wind;
   rain: null | number;
   snow: null | number;
-  weather: [];
+  weather: any[];
 }
 export interface WeatherList {
   list: any[];
   loading: boolean;
   error: null | string;
   cityInfo: CityInfo;
-  forecast: any;
+  dailyForecast: any;
+  hourlyForecast: any;
 }
 
 export enum WeatherActionTypes {
@@ -34,10 +35,15 @@ export enum WeatherActionTypes {
   FETCH_WEATHER_SUCCESS = "FETCH_WEATHER_SUCCESS",
   FETCH_WEATHER_ERROR = "FETCH_WEATHER_ERROR",
   GET_CITY_INFO = "GET_CITY_INFO",
-  FETCH_FORECAST = "GET_FORECAST",
+  FETCH_DAILY_FORECAST = "FETCH_DAILY_FORECAST",
+  FETCH_HOURLY_FORECAST = "FETCH_HOURLY_FORECAST",
 }
-interface FetchForecastAction {
-  type: WeatherActionTypes.FETCH_FORECAST;
+interface FetchDailyForecastAction {
+  type: WeatherActionTypes.FETCH_DAILY_FORECAST;
+  payload: any;
+}
+interface FetchHourlyForecastAction {
+  type: WeatherActionTypes.FETCH_HOURLY_FORECAST;
   payload: any;
 }
 interface GetCityInfoAction {
@@ -61,4 +67,5 @@ export type WeatherAction =
   | FetchWeatherSuccessAction
   | FetchWeatherErrorAction
   | GetCityInfoAction
-  | FetchForecastAction;
+  | FetchDailyForecastAction
+  | FetchHourlyForecastAction;

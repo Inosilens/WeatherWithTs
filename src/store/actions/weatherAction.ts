@@ -17,7 +17,7 @@ export const fetchWeather = () => {
           lang: `ru`,
         },
       });
-      const forecast = await axios.get(FORECAST_URL, {
+      const dailyForecast = await axios.get(FORECAST_URL, {
         params: {
           lat: 56.5,
           lon: 84.9667,
@@ -27,13 +27,27 @@ export const fetchWeather = () => {
           exclude: `hourly`,
         },
       });
+      const hourlyForecast = await axios.get(FORECAST_URL, {
+        params: {
+          lat: 56.5,
+          lon: 84.9667,
+          units: "metric",
+          appid: API_KEY,
+          lang: `ru`,
+          exclude: `daily`,
+        },
+      });
       dispatch({
         type: WeatherActionTypes.FETCH_WEATHER_SUCCESS,
         payload: weather.data.list,
       });
       dispatch({
-        type: WeatherActionTypes.FETCH_FORECAST,
-        payload: forecast.data.daily,
+        type: WeatherActionTypes.FETCH_DAILY_FORECAST,
+        payload: dailyForecast.data.daily,
+      });
+      dispatch({
+        type: WeatherActionTypes.FETCH_HOURLY_FORECAST,
+        payload: hourlyForecast.data.hourly,
       });
       dispatch({
         type: WeatherActionTypes.GET_CITY_INFO,
@@ -64,8 +78,26 @@ export const getForecast = (lat: number, lon: number) => {
       },
     });
     dispatch({
-      type: WeatherActionTypes.FETCH_FORECAST,
+      type: WeatherActionTypes.FETCH_DAILY_FORECAST,
       payload: forecast.data.daily,
+    });
+  };
+};
+export const getHourlyForecast = (lat: number, lon: number) => {
+  return async (dispatch: Dispatch<WeatherAction>) => {
+    const forecast = await axios.get(FORECAST_URL, {
+      params: {
+        lat: lat,
+        lon: lon,
+        units: "metric",
+        appid: API_KEY,
+        lang: `ru`,
+        exclude: `daily`,
+      },
+    });
+    dispatch({
+      type: WeatherActionTypes.FETCH_HOURLY_FORECAST,
+      payload: forecast.data.hourly,
     });
   };
 };

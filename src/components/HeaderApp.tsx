@@ -4,6 +4,18 @@ import { CityCart } from "./CityCart";
 import styled from "styled-components";
 import { useActions } from "../hooks/useActions";
 import { Panagination } from "./Panagination";
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+const CityList = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+`;
 
 export const HeaderApp: FC = () => {
   const { list, loading, error } = useTypedSelector((state) => state.weather);
@@ -18,18 +30,6 @@ export const HeaderApp: FC = () => {
   const LAST_CITY_INDEX = currentPage * CITY_PER_PAGE;
   const FIRST_CITY_INDEX = LAST_CITY_INDEX - CITY_PER_PAGE;
   const currentCity = list.slice(FIRST_CITY_INDEX, LAST_CITY_INDEX);
-  const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  `;
-  const CityList = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
-  `;
 
   if (loading) {
     return <h1>Идет загрузка...</h1>;
