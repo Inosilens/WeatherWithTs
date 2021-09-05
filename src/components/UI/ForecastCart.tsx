@@ -1,10 +1,16 @@
 import React, { FC } from "react";
-import { getCurrentDate, IMAGE_URL } from "../helpers/constants";
+import { getCurrentDate, IMAGE_URL } from "../../helpers/constants";
 import styled from "styled-components";
-
+const DailyForecast = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+`;
 const HourlyForecast = styled.div`
   display: flex;
   flex-direction: column;
+  margin: 10px;
 `;
 const Time = styled.div``;
 const Temp = styled.div``;
@@ -21,7 +27,7 @@ interface Weather {
 }
 interface Item {
   dt: any;
-  temp: Temp;
+  temp: any | Temp;
   weather: Weather[];
 }
 interface Props {
@@ -37,8 +43,8 @@ export const ForecastCart: FC<Props> = ({ item, hourly }) => {
   if (hourly) {
     return (
       <HourlyForecast>
-        <Time> {Hour}</Time>
-        <Temp>{item.temp}</Temp>
+        <Time> {Hour}:00</Time>
+        <Temp>{Math.floor(item.temp)} &#8451;</Temp>
         <Img>
           <img
             src={IMAGE_URL + item.weather[0].icon + `@2x.png`}
@@ -50,14 +56,19 @@ export const ForecastCart: FC<Props> = ({ item, hourly }) => {
     );
   }
   return (
-    <div>
-      {day.getDate()} {thisDate}
-      {item.temp.day}
-      <img
-        src={IMAGE_URL + item.weather[0].icon + `@2x.png`}
-        alt="weather"
-        width="40px"
-      />
-    </div>
+    <DailyForecast>
+      <Time>
+        {day.getDate()} {thisDate}
+      </Time>
+
+      <Temp> {Math.floor(item.temp.day)} &#8451;</Temp>
+      <Img>
+        <img
+          src={IMAGE_URL + item.weather[0].icon + `@2x.png`}
+          alt="weather"
+          width="40px"
+        />
+      </Img>
+    </DailyForecast>
   );
 };

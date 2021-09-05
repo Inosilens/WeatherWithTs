@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import styled from "styled-components";
 import { useActions } from "../hooks/useActions";
 import { CityInfo } from "../store/types/Weather";
+import {transcription} from "../helpers/transcription";
 
 const Cart = styled.span`
   margin: 10px;
@@ -26,7 +27,7 @@ export const CityCart: FC<CityInfo> = (city) => {
         foreCast(city.coord?.lat, city.coord?.lon);
       }}
     >
-      {city.name}
+      {transcription(city.name,true)}
     </Cart>
   );
 };

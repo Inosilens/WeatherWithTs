@@ -2,7 +2,8 @@ import React, { FC } from "react";
 import { useTypedSelector } from "../hooks/useTypedSelector";
 import styled from "styled-components";
 import { Day, Hour, IMAGE_URL, Minutes, thisDay } from "../helpers/constants";
-import { ForecastCart } from "./ForecastCart";
+import { ForecastCart } from "./UI/ForecastCart";
+import {transcription} from "../helpers/transcription";
 const Container = styled.div`
   margin: 10px 100px 0px;
 `;
@@ -14,7 +15,7 @@ export const CityInfo: FC = () => {
 
   return (
     <Container>
-      <h1>{cityInfo.name}</h1>
+      <h1>{transcription(cityInfo.name,true)}</h1>
       <h3>
         {Hour}:{Minutes}
       </h3>
@@ -29,7 +30,7 @@ export const CityInfo: FC = () => {
       </h1>
       <h3>
         {cityInfo.main.temp}
-        &#8451;{" "}
+        &#8451;
       </h3>
       <h3>
         Ощущается : {cityInfo.main.feels_like}
