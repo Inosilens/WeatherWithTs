@@ -14,7 +14,8 @@ const ForecastContainer = styled.div`
 
 export const Forecast: FC = () => {
   const { hourlyForecast } = useTypedSelector((state) => state.weather);
-  return (
+
+    return (
     <Container>
       <h1>Текущая температура :</h1>
       <ForecastContainer>

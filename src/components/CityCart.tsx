@@ -4,7 +4,7 @@ import { useActions } from "../hooks/useActions";
 import { CityInfo } from "../store/types/Weather";
 import {transcription} from "../helpers/transcription";
 
-const Cart = styled.span`
+const Cart = styled.div`
   margin: 10px;
 `;
 export const CityCart: FC<CityInfo> = (city) => {

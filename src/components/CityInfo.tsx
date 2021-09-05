@@ -5,8 +5,19 @@ import { Day, Hour, IMAGE_URL, Minutes, thisDay } from "../helpers/constants";
 import { ForecastCart } from "./UI/ForecastCart";
 import { transcription } from "../helpers/transcription";
 import { mathFloor } from "../helpers/mathfloor";
+import Tomsk from "../img/Tomsk.jpg";
+
 const Container = styled.div`
-  margin: 10px 100px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 100px;
+  background-size: cover;
+  background: linear-gradient(rgba(56, 51, 51, 0.8), rgba(0, 0, 0, 0.5)),
+    url(${Tomsk}) center center no-repeat;
+  background-size: cover;
+  color: white;
 `;
 export const CityInfo: FC = () => {
   const { cityInfo, dailyForecast } = useTypedSelector(
@@ -14,7 +25,7 @@ export const CityInfo: FC = () => {
   );
 
   return (
-    <Container >
+    <Container>
       <h1>{transcription(cityInfo.name, true)}</h1>
       <h3>
         {Hour}:{Minutes}

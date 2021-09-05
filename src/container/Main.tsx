@@ -7,8 +7,9 @@ import { useTypedSelector } from "../hooks/useTypedSelector";
 
 const Container = styled.div`
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 `;
 

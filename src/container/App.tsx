@@ -4,7 +4,7 @@ import { Main } from "./Main";
 import styled  from "styled-components";
 
 const GlobalStyle = styled.div`
-  background: #99bbab;
+  background: rgba(145, 161, 158, 0.47);
 `;
 
 export const App: FC = () => {
