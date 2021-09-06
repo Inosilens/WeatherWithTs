@@ -5,8 +5,7 @@ import { Day, Hour, IMAGE_URL, Minutes, thisDay } from "../helpers/constants";
 import { ForecastCart } from "./UI/ForecastCart";
 import { transcription } from "../helpers/transcription";
 import { mathFloor } from "../helpers/mathfloor";
-import {dynamicBackground} from "../helpers/dynamicBackground";
-
+import { dynamicBackground } from "../helpers/dynamicBackground";
 
 interface Container {
   cityName?: string;
@@ -21,21 +20,21 @@ const ContainerInfo = styled.div<Container>`
   padding: 100px;
   background-size: cover;
   background: linear-gradient(rgba(56, 51, 51, 0.8), rgba(0, 0, 0, 0.5)),
-    url(${props => props.patch}) center center no-repeat;
-  background-size: cover;
+    url(${(props) => props.patch}) center center no-repeat;
+  background-size: contain;
   color: white;
 `;
-
 
 export const CityInfo: FC = () => {
   const { cityInfo, dailyForecast } = useTypedSelector(
     (state) => state.weather
   );
 
-
-
   return (
-    <ContainerInfo cityName={cityInfo.name} patch={dynamicBackground(cityInfo.name)}>
+    <ContainerInfo
+      cityName={cityInfo.name}
+      patch={process.env.PUBLIC_URL + dynamicBackground(cityInfo.name)}
+    >
       <h1>{transcription(cityInfo.name, true)}</h1>
       <h3>
         {Hour}:{Minutes}
