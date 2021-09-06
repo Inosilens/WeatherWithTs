@@ -24,7 +24,7 @@ export const HeaderApp: FC = () => {
 
   useEffect(() => {
     fetchWeather();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const CITY_PER_PAGE = 5;
   const LAST_CITY_INDEX = currentPage * CITY_PER_PAGE;

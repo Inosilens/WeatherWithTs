@@ -9,7 +9,7 @@ export const Hour = date.getHours();
 export const Minutes = date.getMinutes();
 export const Day = date.getDate();
 const Month = date.getMonth();
-export const getCurrentDate = (mont) => {
+export const getCurrentDate = (mont:any) => {
   switch (mont) {
     case 0:
       return (mont = "января");
