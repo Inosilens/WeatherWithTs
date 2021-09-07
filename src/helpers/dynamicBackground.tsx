@@ -1,36 +1,17 @@
-export const dynamicBackground = (name: string) => {
-    switch (name) {
-        case "Tomsk"       :
-            return "../img/Tomsk.jpg";
-        case "Timiryazevskiy" :
-            return "../img/Timiryazevskoe.jpg";
-        case"Seversk"        :
-            return "../img/Seversk.jpg";
-        case"Iglakovo"         :
-            return "../img/Iglakovo.jpg";
-        case"Luchanovo"     :
-            return "../img/Luchanovo.jpg";
-        case"Bogashevo"      :
-            return "../img/Bogashevo.jpg";
-        case"Kaltay"        :
-            return "../img/Kaltay.jpg";
-        case"Moryakovskiy Zaton"  :
-            return "../img/Zaton.jpg";
-        case"Karbysheva"     :
-            return "../img/Karbysheva.jpg";
-        case"Samus`"        :
-            return "../img/Samus.jpg";
-        case"Aleksandrovskoye"  :
-            return "../img/Aleksandrovskoe.jpg";
-        case"Mel'nikovo"     :
-            return "../img/Melnikovo.jpg";
-        case "Tayga"          :
-            return "../img/Tayga.jpg";
-        case"Kozhevnikovo"    :
-            return "../img/Kojevnikovo.jpg";
-        case"Krasnyy Yar"    :
-            return "../img/Krasniy.jpg";
-        default :
-            return null
-    }
-}
+export const dynamicBackground = (city:string)=>({
+        "Tomsk": "../img/Tomsk.jpg",
+        "Timiryazevskiy": "../img/Timiryazevskoe.jpg",
+        "Seversk": "../img/Seversk.jpg",
+        "Iglakovo": "../img/Iglakovo.jpg",
+        "Luchanovo": "../img/Luchanovo.jpg",
+        "Bogashevo": "../img/Bogashevo.jpg",
+        "Kaltay": "../img/Kaltay.jpg",
+        "Moryakovskiy Zaton": "../img/Zaton.jpg",
+        "Karbysheva": "../img/Karbysheva.jpg",
+        "Samus`": "../img/Samus`.jpg",
+        "Aleksandrovskoye": "../img/Aleksandrovskoe.jpg",
+        "Mel'nikovo": "../img/Melnikovo.jpg",
+        "Tayga": "../img/Tayga.jpg",
+        "Kozhevnikovo": "../img/Kojevnikovo.jpg",
+        "Krasnyy Yar": "../img/Krasniy.jpg",
+    }[city]||undefined)

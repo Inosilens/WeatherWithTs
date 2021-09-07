@@ -1,15 +1,15 @@
-import React, { FC } from "react";
-import { useTypedSelector } from "../hooks/useTypedSelector";
+import React, {FC} from "react";
+import {useTypedSelector} from "../hooks/useTypedSelector";
 import styled from "styled-components";
-import { Day, Hour, IMAGE_URL, Minutes, thisDay } from "../helpers/constants";
-import { ForecastCart } from "./UI/ForecastCart";
-import { transcription } from "../helpers/transcription";
-import { mathFloor } from "../helpers/mathfloor";
-import { dynamicBackground } from "../helpers/dynamicBackground";
+import {Day, Hour, IMAGE_URL, Minutes, thisDay} from "../helpers/constants";
+import {ForecastCart} from "./UI/ForecastCart";
+import {transcription} from "../helpers/transcription";
+import {mathFloor} from "../helpers/mathfloor";
+import {dynamicBackground} from "../helpers/dynamicBackground";
 
 interface Container {
-  cityName?: string;
-  patch: any;
+    cityName?: string;
+    patch: any;
 }
 
 const ContainerInfo = styled.div<Container>`
@@ -19,49 +19,49 @@ const ContainerInfo = styled.div<Container>`
   align-items: center;
   padding: 100px;
   background-size: cover;
-  background: linear-gradient(rgba(56, 51, 51, 0.8), rgba(0, 0, 0, 0.5)),
+  background: linear-gradient(rgba(56, 51, 51, 0.4), rgba(0, 0, 0, 0.5)),
     url(${(props) => props.patch}) center center no-repeat;
   background-size: contain;
   color: white;
 `;
 
 export const CityInfo: FC = () => {
-  const { cityInfo, dailyForecast } = useTypedSelector(
-    (state) => state.weather
-  );
+    const {cityInfo, dailyForecast} = useTypedSelector(
+        (state) => state.weather
+    );
 
-  return (
-    <ContainerInfo
-      cityName={cityInfo.name}
-      patch={process.env.PUBLIC_URL + dynamicBackground(cityInfo.name)}
-    >
-      <h1>{transcription(cityInfo.name, true)}</h1>
-      <h3>
-        {Hour}:{Minutes}
-      </h3>
-      <h3>
-        {Day} {thisDay}
-      </h3>
-      <h1>
-        <img
-          src={IMAGE_URL + cityInfo.weather[0].icon + `@2x.png`}
-          alt="weather"
-        />
-      </h1>
-      <h3>
-        {mathFloor(cityInfo.main.temp)}
-        &#8451;
-      </h3>
-      <h3>
-        Ощущается : {mathFloor(cityInfo.main.feels_like)}
-        &#8451;
-      </h3>
+    return (
+        <ContainerInfo
+            cityName={cityInfo.name}
+            patch={process.env.PUBLIC_URL + dynamicBackground(cityInfo.name)}
+        >
+            <h1>{transcription(cityInfo.name, true)}</h1>
+            <h3>
+                {Hour}:{Minutes}
+            </h3>
+            <h3>
+                {Day} {thisDay}
+            </h3>
+            <h1>
+                <img
+                    src={IMAGE_URL + cityInfo.weather[0].icon + `@2x.png`}
+                    alt="weather"
+                />
+            </h1>
+            <h3>
+                {mathFloor(cityInfo.main.temp)}
+                &#8451;
+            </h3>
+            <h3>
+                Ощущается : {mathFloor(cityInfo.main.feels_like)}
+                &#8451;
+            </h3>
 
-      {dailyForecast
-        .map((item: any, index: number) => (
-          <ForecastCart hourly={false} key={index} item={item} />
-        ))
-        .splice(1, 4)}
-    </ContainerInfo>
-  );
+            {dailyForecast
+                .map((item: any, index: number) => (
+                    <ForecastCart hourly={false} key={index} item={item}/>
+                ))
+                .splice(1, 4)}
+        </ContainerInfo>
+    );
 };
