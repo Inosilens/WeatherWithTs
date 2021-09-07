@@ -6,6 +6,7 @@ import {ForecastCart} from "./UI/ForecastCart";
 import {transcription} from "../helpers/transcription";
 import {mathFloor} from "../helpers/mathfloor";
 import {dynamicBackground} from "../helpers/dynamicBackground";
+import {Icon} from "./UI/Icon";
 
 interface Container {
     cityName?: string;
@@ -13,16 +14,18 @@ interface Container {
 }
 
 const ContainerInfo = styled.div<Container>`
+  max-width: 300px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   padding: 100px;
   background-size: cover;
-  background: linear-gradient(rgba(56, 51, 51, 0.4), rgba(0, 0, 0, 0.5)),
-    url(${(props) => props.patch}) center center no-repeat;
+  background: linear-gradient(rgba(255, 252, 252, 0.18), rgba(0, 0, 0, 0.5)),
+  url(${(props) => props.patch}) center center no-repeat;
   background-size: contain;
-  color: white;
+  color: #ec0e3b;
 `;
 
 export const CityInfo: FC = () => {
@@ -42,12 +45,7 @@ export const CityInfo: FC = () => {
             <h3>
                 {Day} {thisDay}
             </h3>
-            <h1>
-                <img
-                    src={IMAGE_URL + cityInfo.weather[0].icon + `@2x.png`}
-                    alt="weather"
-                />
-            </h1>
+            <Icon width={100} link={cityInfo.weather[0].icon}/>
             <h3>
                 {mathFloor(cityInfo.main.temp)}
                 &#8451;

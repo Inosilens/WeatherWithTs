@@ -44,7 +44,7 @@ export const HeaderApp: FC = () => {
         {currentCity.map((city) => (
           <CityCart key={city.id} {...city} />
         ))}
-      </CityList>
+      </CityList >
       <Panagination />
     </Container>
   );
