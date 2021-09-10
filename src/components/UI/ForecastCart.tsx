@@ -49,7 +49,6 @@ export const ForecastCart: FC<Props> = ({ item, hourly }) => {
     return (
       <HourlyForecast>
         <Time> {Hour}:00</Time>
-
         <Temp temp={item.temp} />
         <Icon width={50} link={item.weather[0].icon} />
       </HourlyForecast>

@@ -7,7 +7,6 @@ import { PanaginationReducer } from "./reducer/PanagintaionReducer";
 const rootReducer = combineReducers({
   weather: weatherReducer,
   panagination: PanaginationReducer,
-
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

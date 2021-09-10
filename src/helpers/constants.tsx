@@ -9,36 +9,21 @@ export const Hour = date.getHours();
 export const Minutes = date.getMinutes();
 export const Day = date.getDate();
 const Month = date.getMonth();
-export const getCurrentDate = (mont:any) => {
-  switch (mont) {
-    case 0:
-      return (mont = "января");
-    case 1:
-      return (mont = "февраля");
-    case 2:
-      return (mont = "марта");
-    case 3:
-      return (mont = "апреля");
-    case 4:
-      return (mont = "мае");
-    case 5:
-      return (mont = "июня");
-    case 6:
-      return (mont = "июля");
-    case 7:
-      return (mont = "августа");
-    case 8:
-      return (mont = "сентября");
-    case 9:
-      return (mont = "октября");
-    case 10:
-      return (mont = "ноября");
-    case 11:
-      return (mont = "декабря");
-    default:
-      return null;
-  }
-};
+export const getCurrentDate = (mont: number) =>
+  ({
+    0: "января",
+    1: "февраля",
+    2: "марта",
+    3: "апреля",
+    4: "мае",
+    5: "июня",
+    6: "июля",
+    7: "августа",
+    8: "сентября",
+    9: "октября",
+    10: "ноября",
+    11: "декабря",
+  }[mont] || undefined);
 
 export const thisDay = getCurrentDate(Month);
 

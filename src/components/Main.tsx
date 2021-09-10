@@ -4,7 +4,6 @@ import { Forecast } from "./Forecast";
 import styled from "styled-components";
 import { useTypedSelector } from "../hooks/useTypedSelector";
 
-
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;

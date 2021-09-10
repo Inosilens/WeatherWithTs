@@ -4,9 +4,8 @@ import { useActions } from "../hooks/useActions";
 import { CityInfo } from "../store/types/Weather";
 import { transcription } from "../helpers/transcription";
 import { dynamicBackground } from "../helpers/dynamicBackground";
-import { mathFloor } from "../helpers/mathfloor";
 import { Icon } from "./UI/Icon";
-import {Temp} from "./UI/Temp";
+import { Temp } from "./UI/Temp";
 const Name = styled.div``;
 const Cart = styled.div`
   margin: 40px;
@@ -21,8 +20,8 @@ const WeatherInfo = styled.div`
 const Round = styled.img`
   width: 50px;
   height: 50px;
-  border-radius: 100px; 
-  box-shadow: 0 0 7px #666; 
+  border-radius: 100px;
+  box-shadow: 0 0 7px #666;
 `;
 
 export const CityCart: FC<CityInfo> = (city) => {
@@ -48,7 +47,7 @@ export const CityCart: FC<CityInfo> = (city) => {
       <Round src={process.env.PUBLIC_URL + dynamicBackground(city.name)} />
       <WeatherInfo>
         <Name>{transcription(city.name, true)}</Name>
-        <Temp temp={city.main.temp}/>
+        <Temp temp={city.main.temp} />
 
         <Icon width={40} link={city.weather[0].icon} />
       </WeatherInfo>

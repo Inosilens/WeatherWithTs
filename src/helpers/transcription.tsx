@@ -8,7 +8,7 @@ export const transcription = (function () {
         / +/g
       );
 
-  return function (text:string, engToRus:boolean) {
+  return function (text: string, engToRus: boolean) {
     let x;
 
     for (x = 0; x < rus.length; x++) {
