@@ -21,8 +21,8 @@ const WeatherInfo = styled.div`
 const Round = styled.img`
   width: 50px;
   height: 50px;
-  border-radius: 100px; /* Радиус скругления */
-  box-shadow: 0 0 7px #666; /* Параметры тени */
+  border-radius: 100px; 
+  box-shadow: 0 0 7px #666; 
 `;
 
 export const CityCart: FC<CityInfo> = (city) => {

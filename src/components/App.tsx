@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { HeaderApp } from "../components/HeaderApp";
+import { HeaderApp } from "./HeaderApp";
 import { Main } from "./Main";
 import styled  from "styled-components";
 

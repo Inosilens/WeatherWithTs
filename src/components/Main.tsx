@@ -1,6 +1,6 @@
 import React from "react";
-import { CityInfo } from "../components/CityInfo";
-import { Forecast } from "../components/Forecast";
+import { CityInfo } from "./CityInfo";
+import { Forecast } from "./Forecast";
 import styled from "styled-components";
 import { useTypedSelector } from "../hooks/useTypedSelector";
 
