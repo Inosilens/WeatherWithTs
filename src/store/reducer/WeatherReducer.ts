@@ -2,7 +2,7 @@ import {
   WeatherAction,
   WeatherActionTypes,
   WeatherList,
-} from "../types/Weather";
+} from "../../types/Weather";
 
 const defaultState: WeatherList = {
   list: [],

@@ -10,6 +10,7 @@ const Container = styled.div`
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  background: rgba(17, 63, 102, 0.3);
 `;
 
 export const Main = () => {

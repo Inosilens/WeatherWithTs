@@ -1,9 +1,8 @@
 import React, { FC } from "react";
-import { getCurrentDate } from "../../helpers/constants";
+import { getCurrentDate } from "../helpers/constants";
 import styled from "styled-components";
-import { mathFloor } from "../../helpers/mathfloor";
-import { Icon } from "./Icon";
-import { Temp } from "./Temp";
+import { Icon } from "./UI/Icon";
+import { Temp } from "./UI/Temp";
 const DailyForecast = styled.div`
   display: flex;
   flex-direction: row;
@@ -16,7 +15,8 @@ const HourlyForecast = styled.div`
   flex-direction: column;
   margin: 10px;
 `;
-const Time = styled.div``;
+const Time = styled.div`
+margin-left: 10px`;
 
 interface Temp {
   day: number;
@@ -44,7 +44,7 @@ export const ForecastCart: FC<Props> = ({ item, hourly }) => {
   const day: any = new Date(item.dt * 1000);
   const thisDate = getCurrentDate(day.getMonth());
   const Hour = day.getHours();
-
+    console.log(item)
   if (hourly) {
     return (
       <HourlyForecast>
@@ -57,9 +57,9 @@ export const ForecastCart: FC<Props> = ({ item, hourly }) => {
   return (
     <DailyForecast>
       <Time>
-        {day.getDate()} {thisDate}
+        {day.getDate()}  {thisDate}
       </Time>
-      <Temp temp={item.temp} />
+      <Temp temp={item.temp.day} />
       <Icon width={50} link={item.weather[0].icon} />
     </DailyForecast>
   );

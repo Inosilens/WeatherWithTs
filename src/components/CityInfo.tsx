@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { useTypedSelector } from "../hooks/useTypedSelector";
 import styled from "styled-components";
 import { Day, Hour, IMAGE_URL, Minutes, thisDay } from "../helpers/constants";
-import { ForecastCart } from "./UI/ForecastCart";
+import { ForecastCart } from "./ForecastCart";
 import { transcription } from "../helpers/transcription";
 import { mathFloor } from "../helpers/mathfloor";
 import { dynamicBackground } from "../helpers/dynamicBackground";
@@ -14,18 +14,18 @@ interface Container {
 }
 
 const ContainerInfo = styled.div<Container>`
-  max-width: 300px;
+  max-width: 400px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 100px;
   background-size: cover;
-  background: linear-gradient(rgba(255, 252, 252, 0.18), rgba(0, 0, 0, 0.5)),
-    url(${(props) => props.patch}) center center no-repeat;
-  background-size: contain;
-  color: #ec0e3b;
+  background: linear-gradient(rgba(45, 43, 43, 0.6), rgba(0, 0, 0, 0.5)),
+  url(${(props) => props.patch}) center center no-repeat;
+  background-size: cover;
+  color: #fcfcfc;
 `;
 
 export const CityInfo: FC = () => {

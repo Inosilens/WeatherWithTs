@@ -1,16 +1,19 @@
 import React, { FC } from "react";
 import styled from "styled-components";
 import { useActions } from "../hooks/useActions";
-import { CityInfo } from "../store/types/Weather";
+import { CityInfo } from "../types/Weather";
 import { transcription } from "../helpers/transcription";
 import { dynamicBackground } from "../helpers/dynamicBackground";
 import { Icon } from "./UI/Icon";
 import { Temp } from "./UI/Temp";
-const Name = styled.div``;
+const Name = styled.div`
+  margin-left: 10px;
+`;
 const Cart = styled.div`
   margin: 40px;
   display: flex;
   flex-direction: row;
+  cursor: pointer;
 `;
 const WeatherInfo = styled.div`
   display: flex;
@@ -48,7 +51,6 @@ export const CityCart: FC<CityInfo> = (city) => {
       <WeatherInfo>
         <Name>{transcription(city.name, true)}</Name>
         <Temp temp={city.main.temp} />
-
         <Icon width={40} link={city.weather[0].icon} />
       </WeatherInfo>
     </Cart>

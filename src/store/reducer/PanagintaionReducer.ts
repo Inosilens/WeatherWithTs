@@ -2,7 +2,7 @@ import {
   Panagination,
   PanaginationAction,
   PanaginationActionsType,
-} from "../types/Panagination";
+} from "../../types/Panagination";
 
 const defaultState: Panagination = {
   currentPage: 1,

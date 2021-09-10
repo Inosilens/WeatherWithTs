@@ -9,6 +9,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: #abb7d9;
 `;
 const CityList = styled.div`
   display: flex;
