@@ -1,7 +1,7 @@
 import React from "react";
 import {Auth} from "../pages/auth/Auth";
 import {Main} from "../pages/main/Main";
-import {Registration} from "../pages/auth/Registration/Registration";
+import {Registration} from "../pages/auth/tabs/Registration/Registration";
 
 interface IRoute {
     path: string;

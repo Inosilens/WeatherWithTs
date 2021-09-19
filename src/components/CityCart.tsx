@@ -1,11 +1,12 @@
 import React, { FC } from "react";
 import styled from "styled-components";
-import { useActions } from "../hooks/useActions";
-import { ICityInfo } from "../pages/main/types/Weather";
+import { ICityInfo } from "../pages/main/types";
 import { transcription } from "../helpers/transcription";
 import { dynamicBackground } from "../helpers/dynamicBackground";
 import { Icon } from "./Icon";
 import { Temp } from "./Temp";
+import {fetchDailyForecast, fetchHourlyForecast, getCityInfo} from "../pages/main/Main-slice";
+import {useDispatch} from "react-redux";
 const Name = styled.div`
   margin-left: 10px;
 `;
@@ -28,15 +29,15 @@ const Round = styled.img`
 `;
 
 export const CityCart: FC<ICityInfo> = (city) => {
-  const { getCityInfo, getForecast, getHourlyForecast } = useActions();
+  const dispatch=useDispatch()
   const cityInfo = (item: object) => {
-    getCityInfo(item);
+   dispatch(getCityInfo(item)) ;
   };
   const foreCast = (lat: any, lon: any) => {
-    getForecast(lat, lon);
+   dispatch(fetchDailyForecast({lat:lat,lon:lon}));
   };
   const hourlyForecast = (lat: number, lon: number) => {
-    getHourlyForecast(lat, lon);
+     dispatch(fetchHourlyForecast({lat, lon}))
   };
 
   return (

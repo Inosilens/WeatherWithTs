@@ -22,6 +22,7 @@ export interface ICityInfo {
   weather: any[];
 }
 export interface IWeatherList {
+  currentPage : number,
   list: any[];
   loading: boolean;
   error: null | string;

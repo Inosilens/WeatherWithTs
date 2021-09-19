@@ -4,9 +4,10 @@ import {Forecast} from "./components/Forecast/Forecast";
 import styled from "styled-components";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 import {Navigation} from "../../components/Navigation";
-import {fetchWeather} from "./main-slice";
+import {fetchWeather} from "./Main-slice";
 import {useDispatch} from "react-redux";
 import {Header} from "./components/Header/Header";
+import {Loader} from "../../components/Loader";
 
 const Container = styled.div`
   display: flex;
@@ -18,7 +19,7 @@ const Container = styled.div`
 `;
 
 export const Main = () => {
-    const dispatch =useDispatch()
+    const dispatch = useDispatch()
     const {loading} = useTypedSelector(state => state.main)
 
     useEffect(() => {
@@ -26,15 +27,17 @@ export const Main = () => {
     }, []);
 
 
-    if (loading){
-        return <>Loading....</>
+    if (loading) {
+        return <><Loader/></>
     }
 
     return (
-        <Container>
+        <>
             <Header/>
-            <CityInfo/>
-            <Forecast/>
-        </Container>
+            <Container>
+                <CityInfo/>
+                <Forecast/>
+            </Container>
+        </>
     );
 };

@@ -1,5 +1,5 @@
 import React, {FC, useState} from 'react';
-import Form from "./Components/Form";
+import Form from "./components/Form";
 import {useDispatch} from "react-redux";
 import {authUser} from "./Auth-slice";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
@@ -8,8 +8,8 @@ import {useTypedSelector} from "../../hooks/useTypedSelector";
 export const Auth: FC = () => {
     const {serverError} = useTypedSelector(state => state.auth)
     const dispatch = useDispatch()
-    const [name, setName] = useState()
-    const [password, setPassword] = useState()
+    const [name, setName] = useState("")
+    const [password, setPassword] = useState("")
     const User = {
         name: name,
         password: password
@@ -29,6 +29,7 @@ export const Auth: FC = () => {
     return (
         <div>
             <Form
+                disabled={!name.length || !password.length}
                 error={serverError}
                 type={"password"}
                 formType="login"

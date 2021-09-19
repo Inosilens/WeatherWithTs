@@ -21,11 +21,7 @@ const CityList = styled.div`
 `;
 
 export const Header: FC = () => {
-    const {list, loading, error} = useTypedSelector((state) => state.main);
-    const {currentPage} = useTypedSelector((state) => state.panagination);
-
-
-    console.log(list)
+    const {list, currentPage} = useTypedSelector((state) => state.main);
 
 
     const CITY_PER_PAGE = 5;

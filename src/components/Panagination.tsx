@@ -1,6 +1,9 @@
 import React, { FC } from "react";
-import { useActions } from "../hooks/useActions";
 import styled from "styled-components";
+import {useDispatch} from "react-redux";
+import {panagination} from "../pages/main/Main-slice";
+
+
 const Link = styled.a`
   text-decoration: none;
   color: #367ede;
@@ -11,11 +14,11 @@ const ListItem = styled.li`
   text-decoration: none;
 `;
 export const Panagination: FC = () => {
-  const { panaginationActions } = useActions();
+  const dispatch = useDispatch()
 
   const pages: number[] = [1, 2, 3];
   const changePage = (number: number) => {
-    panaginationActions(number);
+   dispatch(panagination(number))
   };
   return (
     <ul>

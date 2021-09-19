@@ -15,13 +15,15 @@ const Button = styled.button`
     color : #2298b8 ;
     margin:10px
     width:50px
+    cursor : pointer  
     `
 
 const TextField = styled.input`
     border: none;
     padding: 10px;
     color : #2298b8 ;
-    margin:10px
+    margin:10px;
+    cursor : pointer  
 `
 
 const ContainerForm = styled.div`
@@ -50,6 +52,7 @@ const ContentContainer = styled.div`
 `
 
 interface FormProps {
+    disabled?: any
     error?: string | null;
     formType: string;
     tittle?: string;
@@ -61,6 +64,7 @@ interface FormProps {
 }
 
 const Form: FC<FormProps> = ({
+                                 disabled,
                                  error,
                                  formType,
                                  tittle,
@@ -83,7 +87,7 @@ const Form: FC<FormProps> = ({
                     {(error) ? <Notification>{error}</Notification> : null}
                     <TextField onChange={changePassword} placeholder="Пароль" type={type}/>
                     {errors.exampleRequired && <span>This field is required</span>}
-                    <TextField type="submit"/>
+                    <TextField disabled={disabled} type="submit"/>
                     {formType === "login" ?
                         <Link to="/registration">
                             <Button> Регистрация </Button>

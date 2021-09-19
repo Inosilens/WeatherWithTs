@@ -1,23 +1,13 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import axios from "axios";
-
-
-export interface IUser {
-    name: string;
-    password: any
-}
-
-export interface TinitialState {
-    serverError: string | null
-    loading: boolean,
-    auth: boolean
-}
+import {IUser, TinitialState} from "./types";
 
 const initialState: TinitialState = {
     serverError: null,
     loading: false,
     auth: false
 }
+
 export const authUser: any = createAsyncThunk(
     'auth/authUser',
     async (obj: IUser, {dispatch}) => {
@@ -80,7 +70,7 @@ const authSlice = createSlice({
             state.loading = false
         },
         [registerUser.rejected]: (state) => {
-            state.serverError = "neudacha"
+            state.serverError = "Server error"
         }
 
     }
