@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { IMAGE_URL } from "../../helpers/constants";
+import { IMAGE_URL } from "../helpers/constants";
 interface IIcon {
   link: any;
   width: number;

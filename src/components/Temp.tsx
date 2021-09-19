@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { mathFloor } from "../../helpers/mathfloor";
+import { mathFloor } from "../helpers/mathfloor";
 import styled from "styled-components";
 interface ITemp {
   temp: any;

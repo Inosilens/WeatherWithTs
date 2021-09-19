@@ -1,17 +1,19 @@
 import { weatherReducer } from "./reducer/WeatherReducer";
-import thunk from "redux-thunk";
-import { applyMiddleware, combineReducers, createStore } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
+import {  combineReducers } from "redux";
 import { PanaginationReducer } from "./reducer/PanagintaionReducer";
+import {configureStore} from "@reduxjs/toolkit";
+import authSlice from "../pages/auth/Auth-slice"
+
 
 const rootReducer = combineReducers({
   weather: weatherReducer,
   panagination: PanaginationReducer,
+  auth : authSlice
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
 
-export const store = createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(thunk))
-);
+export const store = configureStore({
+  reducer : rootReducer
+})
+

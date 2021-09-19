@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import { getCurrentDate } from "../helpers/constants";
 import styled from "styled-components";
-import { Icon } from "./UI/Icon";
-import { Temp } from "./UI/Temp";
+import { Icon } from "./Icon";
+import { Temp } from "./Temp";
 const DailyForecast = styled.div`
   display: flex;
   flex-direction: row;
@@ -44,7 +44,6 @@ export const ForecastCart: FC<Props> = ({ item, hourly }) => {
   const day: any = new Date(item.dt * 1000);
   const thisDate = getCurrentDate(day.getMonth());
   const Hour = day.getHours();
-    console.log(item)
   if (hourly) {
     return (
       <HourlyForecast>

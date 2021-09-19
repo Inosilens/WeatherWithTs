@@ -4,8 +4,8 @@ import { useActions } from "../hooks/useActions";
 import { CityInfo } from "../types/Weather";
 import { transcription } from "../helpers/transcription";
 import { dynamicBackground } from "../helpers/dynamicBackground";
-import { Icon } from "./UI/Icon";
-import { Temp } from "./UI/Temp";
+import { Icon } from "./Icon";
+import { Temp } from "./Temp";
 const Name = styled.div`
   margin-left: 10px;
 `;

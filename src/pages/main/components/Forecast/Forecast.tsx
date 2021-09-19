@@ -1,6 +1,6 @@
 import React, { FC } from "react";
-import { useTypedSelector } from "../hooks/useTypedSelector";
-import { ForecastCart } from "./ForecastCart";
+import { useTypedSelector } from "../../../../hooks/useTypedSelector";
+import { ForecastCart } from "../../../../components/ForecastCart";
 import styled from "styled-components";
 const Container = styled.div`
   display: flex;

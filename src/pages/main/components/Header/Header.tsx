@@ -1,9 +1,9 @@
 import React, { FC, useEffect } from "react";
-import { useTypedSelector } from "../hooks/useTypedSelector";
-import { CityCart } from "./CityCart";
+import { useTypedSelector } from "../../../../hooks/useTypedSelector";
+import { CityCart } from "../../../../components/CityCart";
 import styled from "styled-components";
-import { useActions } from "../hooks/useActions";
-import { Panagination } from "./Panagination";
+import { useActions } from "../../../../hooks/useActions";
+import { Panagination } from "../../../../components/Panagination";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -18,7 +18,7 @@ const CityList = styled.div`
   align-content: center;
 `;
 
-export const HeaderApp: FC = () => {
+export const Header: FC = () => {
   const { list, loading, error } = useTypedSelector((state) => state.weather);
   const { currentPage } = useTypedSelector((state) => state.panagination);
   const { fetchWeather } = useActions();
@@ -35,6 +35,7 @@ export const HeaderApp: FC = () => {
   if (loading) {
     return <h1>Идет загрузка...</h1>;
   }
+
   if (error) {
     return <h1>{error}</h1>;
   }

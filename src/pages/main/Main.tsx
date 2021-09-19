@@ -1,8 +1,9 @@
 import React from "react";
-import { CityInfo } from "./CityInfo";
-import { Forecast } from "./Forecast";
+import { CityInfo } from "./components/CityInfo/CityInfo";
+import { Forecast } from "./components/Forecast/Forecast";
 import styled from "styled-components";
-import { useTypedSelector } from "../hooks/useTypedSelector";
+import { useTypedSelector } from "../../hooks/useTypedSelector";
+import {Navigation} from "../../components/Navigation";
 
 const Container = styled.div`
   display: flex;
@@ -21,6 +22,7 @@ export const Main = () => {
   }
   return (
     <Container>
+        <Navigation/>
       <CityInfo />
       <Forecast />
     </Container>
