@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import styled from "styled-components";
 import { useActions } from "../hooks/useActions";
-import { CityInfo } from "../types/Weather";
+import { ICityInfo } from "../pages/main/types/Weather";
 import { transcription } from "../helpers/transcription";
 import { dynamicBackground } from "../helpers/dynamicBackground";
 import { Icon } from "./Icon";
@@ -27,7 +27,7 @@ const Round = styled.img`
   box-shadow: 0 0 7px #666;
 `;
 
-export const CityCart: FC<CityInfo> = (city) => {
+export const CityCart: FC<ICityInfo> = (city) => {
   const { getCityInfo, getForecast, getHourlyForecast } = useActions();
   const cityInfo = (item: object) => {
     getCityInfo(item);

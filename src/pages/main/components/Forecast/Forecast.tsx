@@ -13,7 +13,7 @@ const ForecastContainer = styled.div`
 `;
 
 export const Forecast: FC = () => {
-  const { hourlyForecast } = useTypedSelector((state) => state.weather);
+  const { hourlyForecast } = useTypedSelector((state) => state.main);
 
   return (
     <Container>

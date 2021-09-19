@@ -1,6 +1,8 @@
-start server 
-###`json-server --watch db.json`
-start app
+first - start server 
+### `json-server --watch db.json`
+
+
+next - start app
 ### `NPM start`
 registration 
 and use APP

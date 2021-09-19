@@ -2,6 +2,12 @@ import React, {FC} from 'react';
 import {useForm} from "react-hook-form";
 import styled from "styled-components";
 import {Link} from "react-router-dom";
+import {getError} from "../Auth-slice";
+import {useDispatch} from "react-redux";
+
+const Notification = styled.p`
+color:red`
+
 
 const Button = styled.button`
     border: none;
@@ -44,16 +50,26 @@ const ContentContainer = styled.div`
 `
 
 interface FormProps {
-    formType: string
-    tittle?: string
+    error?: string | null;
+    formType: string;
+    tittle?: string;
     onSubmit?: any;
     type?: string;
-    changeName?: any
-    changePassword?: any
+    changeName?: any;
+    changePassword?: any;
 
 }
 
-const Form: FC<FormProps> = ({formType, tittle, changePassword, changeName, onSubmit, type}) => {
+const Form: FC<FormProps> = ({
+                                 error,
+                                 formType,
+                                 tittle,
+                                 changePassword,
+                                 changeName,
+                                 onSubmit,
+                                 type
+                             }) => {
+    const dispatch = useDispatch()
     const {formState: {errors}} = useForm();
 
 
@@ -64,6 +80,7 @@ const Form: FC<FormProps> = ({formType, tittle, changePassword, changeName, onSu
                 <ContentContainer>
                     {tittle}
                     <TextField onChange={changeName} type="text" placeholder="Логин пользователя"/>
+                    {(error) ? <Notification>{error}</Notification> : null}
                     <TextField onChange={changePassword} placeholder="Пароль" type={type}/>
                     {errors.exampleRequired && <span>This field is required</span>}
                     <TextField type="submit"/>
@@ -71,10 +88,9 @@ const Form: FC<FormProps> = ({formType, tittle, changePassword, changeName, onSu
                         <Link to="/registration">
                             <Button> Регистрация </Button>
                         </Link>
-
                         :
                         <Link to="/login">
-                            <Button> Назад </Button>
+                            <Button onClick={() => dispatch(getError(null))}> Назад </Button>
                         </Link>
                     }
                 </ContentContainer>

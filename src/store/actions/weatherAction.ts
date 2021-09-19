@@ -1,5 +1,5 @@
 import axios from "axios";
-import { WeatherAction, WeatherActionTypes } from "../../types/Weather";
+import { WeatherAction, WeatherActionTypes } from "../../pages/main/types/Weather";
 import { Dispatch } from "react";
 import { API_KEY, BASE_URL, FORECAST_URL } from "../../helpers/constants";
 

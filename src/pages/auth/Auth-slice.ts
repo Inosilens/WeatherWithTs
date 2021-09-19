@@ -8,13 +8,13 @@ export interface IUser {
 }
 
 export interface TinitialState {
-    serverError: string,
+    serverError: string | null
     loading: boolean,
     auth: boolean
 }
 
 const initialState: TinitialState = {
-    serverError: "",
+    serverError: null,
     loading: false,
     auth: false
 }
@@ -31,21 +31,30 @@ export const authUser: any = createAsyncThunk(
             localStorage.setItem("name", mockUsers.name)
             dispatch(authSlice.actions.login())
         } else {
-
-           return dispatch(authSlice.actions.logout())
+            dispatch(authSlice.actions.getError('Неверный логин или пароль'))
         }
     }
 )
 export const registerUser: any = createAsyncThunk(
     'auth/registerUser',
-    async (obj) => {
+    async (obj: IUser, {dispatch}) => {
         const response = await axios({
                 url: 'http://localhost:3000/users',
-                method: 'POST',
-                data: obj,
+                method: 'GET',
             }
         )
-        return await response.data
+        const mockUsers = await response.data.find((user: any) => user.name == obj.name)
+        if (mockUsers) {
+            dispatch(authSlice.actions.getError('Пользователь существует'))
+        } else {
+            const response = await axios({
+                url: 'http://localhost:3000/users',
+                method: 'POST',
+                data: obj
+            })
+            return response.data
+
+        }
     }
 )
 const authSlice = createSlice({
@@ -55,8 +64,11 @@ const authSlice = createSlice({
         login(state) {
             state.auth = true
         },
-        logout(state){
-            state.auth=false
+        logout(state) {
+            state.auth = false
+        },
+        getError(state, action) {
+            state.serverError = action.payload
         }
 
     },
@@ -75,6 +87,6 @@ const authSlice = createSlice({
 
 })
 
-export const {logout,login} = authSlice.actions
+export const {logout, login, getError} = authSlice.actions
 
 export default authSlice.reducer

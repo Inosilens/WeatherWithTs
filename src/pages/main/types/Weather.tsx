@@ -1,31 +1,31 @@
-interface Coord {
+interface ICoord {
   lat: number;
   lon: number;
 }
 
-interface Wind {
+interface IWind {
   speed: number;
 }
-interface Main {
+interface IMain {
   temp: number;
   feels_like: number;
   temp_min: number;
   temp_max: number;
 }
-export interface CityInfo {
+export interface ICityInfo {
   name: string;
-  coord: Coord;
-  main: Main;
-  wind: Wind;
+  coord: ICoord;
+  main: IMain;
+  wind: IWind;
   rain: null | number;
   snow: null | number;
   weather: any[];
 }
-export interface WeatherList {
+export interface IWeatherList {
   list: any[];
   loading: boolean;
   error: null | string;
-  cityInfo: CityInfo;
+  cityInfo: ICityInfo;
   dailyForecast: any;
   hourlyForecast: any;
 }

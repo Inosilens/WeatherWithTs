@@ -1,10 +1,12 @@
 import React, {FC, useState} from 'react';
 import Form from "./Components/Form";
 import {useDispatch} from "react-redux";
-import {authUser, registerUser} from "./Auth-slice";
+import {authUser} from "./Auth-slice";
+import {useTypedSelector} from "../../hooks/useTypedSelector";
 
 
 export const Auth: FC = () => {
+    const {serverError} = useTypedSelector(state => state.auth)
     const dispatch = useDispatch()
     const [name, setName] = useState()
     const [password, setPassword] = useState()
@@ -27,6 +29,7 @@ export const Auth: FC = () => {
     return (
         <div>
             <Form
+                error={serverError}
                 type={"password"}
                 formType="login"
                 tittle="Вход"
