@@ -1,6 +1,6 @@
 import React, {FC} from "react";
 import {useTypedSelector} from "../../../../hooks/useTypedSelector";
-import {CityCart} from "../../../../components/CityCart";
+import {CityCart} from "./Components/CityCart";
 import styled from "styled-components";
 
 import {Panagination} from "../../../../components/Panagination";

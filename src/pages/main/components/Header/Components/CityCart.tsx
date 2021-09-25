@@ -1,11 +1,11 @@
 import React, { FC } from "react";
 import styled from "styled-components";
-import { ICityInfo } from "../pages/main/types";
-import { transcription } from "../helpers/transcription";
-import { dynamicBackground } from "../helpers/dynamicBackground";
-import { Icon } from "./Icon";
-import { Temp } from "./Temp";
-import {fetchDailyForecast, fetchHourlyForecast, getCityInfo} from "../pages/main/Main-slice";
+import { ICityInfo } from "../../../types";
+import { transcription } from "../../../../../helpers/transcription";
+import { dynamicBackground } from "../../../../../helpers/dynamicBackground";
+import { Icon } from "../../../../../components/Icon";
+import { Temp } from "../../../../../components/Temp";
+import {fetchDailyForecast, fetchHourlyForecast, getCityInfo} from "../../../Main-slice";
 import {useDispatch} from "react-redux";
 const Name = styled.div`
   margin-left: 10px;

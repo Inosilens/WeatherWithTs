@@ -1,8 +1,8 @@
 import React, { FC } from "react";
-import { getCurrentDate } from "../helpers/constants";
+import { getCurrentDate } from "../../../../../helpers/constants";
 import styled from "styled-components";
-import { Icon } from "./Icon";
-import { Temp } from "./Temp";
+import { Icon } from "../../../../../components/Icon";
+import { Temp } from "../../../../../components/Temp";
 const DailyForecast = styled.div`
   display: flex;
   flex-direction: row;

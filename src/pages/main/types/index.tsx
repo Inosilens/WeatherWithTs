@@ -2,11 +2,14 @@ interface ICoord {
   lat: number;
   lon: number;
 }
-
+export interface IForecastData {
+  dt:number,
+  temp:number
+}
 interface IWind {
   speed: number;
 }
-interface IMain {
+export interface IMain {
   temp: number;
   feels_like: number;
   temp_min: number;
