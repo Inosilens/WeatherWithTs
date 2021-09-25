@@ -3,7 +3,6 @@ import {CityInfo} from "./components/CityInfo/CityInfo";
 import {Forecast} from "./components/Forecast/Forecast";
 import styled from "styled-components";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
-import {Navigation} from "../../components/Navigation";
 import {fetchWeather} from "./Main-slice";
 import {useDispatch} from "react-redux";
 import {Header} from "./components/Header/Header";
